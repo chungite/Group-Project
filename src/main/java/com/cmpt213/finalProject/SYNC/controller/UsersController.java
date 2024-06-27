@@ -39,13 +39,24 @@ public class UsersController{
     @PostMapping("/register")
     public String registerUser(@ModelAttribute UserModel userModel) {
         System.out.println("register request" + userModel);
-        UserModel registerUser = userService.registerUser(userModel.getLogin(), userModel.getPassword(), userModel.getEmail());
-        return registerUser == null ? "error_page" : "redirect:/login";
+        
+        // Hash the password using your custom hash function
+        String hashedPassword = UserModel.hashFunc(userModel.getPassword());
+    
+        // Set the hashed password in the userModel (assuming setHashP sets the hashed password)
+        userModel.setPassword(hashedPassword);
+    
+        // Use the hashed password instead of the plain password
+         UserModel registeredUser = userService.registerUser(userModel.getLogin(), userModel.getPassword(), userModel.getEmail());
+    
+        return registeredUser == null ? "error_page" : "redirect:/login";
     }
 
     @PostMapping("/login")
     public String loginUser(@ModelAttribute UserModel userModel, Model model) {
         System.out.println("login request" + userModel);
+        String hashedPassword = UserModel.hashFunc(userModel.getPassword());
+        userModel.setPassword(hashedPassword);
         UserModel authenticate = userService.authentication(userModel.getLogin(), userModel.getPassword());
         
         if(authenticate != null){
