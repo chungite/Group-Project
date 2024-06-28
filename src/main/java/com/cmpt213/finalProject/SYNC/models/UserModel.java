@@ -13,7 +13,6 @@ public class UserModel {
     String login;
     String password;
     String email;
-    String username; 
     String name;
     @Override
     public int hashCode() {
@@ -77,13 +76,6 @@ public class UserModel {
         this.email = email;
     }
     
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getName() {
         return name;

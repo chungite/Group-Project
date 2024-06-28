@@ -49,7 +49,7 @@ public class UsersController{
         // Use the hashed password instead of the plain password
         //its throwing an error for name + username but I think thats because we havent set up a field for it
         // so its either null or undefined
-         UserModel registeredUser = userService.registerUser(userModel.getLogin(), userModel.getPassword(), userModel.getEmail(), userModel.getUsername(),userModel.getName());
+         UserModel registeredUser = userService.registerUser(userModel.getLogin(), userModel.getPassword(), userModel.getEmail(), userModel.getName());
     
         return registeredUser == null ? "error_page" : "redirect:/login";
     }

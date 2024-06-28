@@ -11,7 +11,7 @@ public class UsersService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserModel registerUser(String login, String password, String email){
+    public UserModel registerUser(String login, String password, String email, String name){
         if(login == null && password == null){
             return null;
         }
@@ -25,6 +25,7 @@ public class UsersService {
             user.setLogin(login);
             user.setPassword(password);
             user.setEmail(email);
+            user.setName(name);
             return userRepository.save(user);
         }
     }
