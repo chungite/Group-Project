@@ -21,12 +21,17 @@
         bottom: 0;
         width: 100%;
     }
+
+    .whitespace {
+            width: 10px;
+            height: 30px;
+        }
 </style>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Sync</a>
+            <a class="navbar-brand" href="/">Sync</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -50,7 +55,7 @@
             <p>Create an account to connect with your friends on Sync.</p>
             <form th:action="@{/register}" th:object="${user}" method="post">
                 <div class="mb-3">
-                    <label for="login" class="form-label">Login</label>
+                    <label for="login" class="form-label">Username</label>
                     <input type="text" class="form-control" id="login" th:field="*{login}" required>
                 </div>
                 <div class="mb-3">
@@ -58,10 +63,33 @@
                     <input type="email" class="form-control" id="email" th:field="*{email}" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                        <input type="checkbox" onclick="togglePassword('password')"> show password
+                    </div>
+                    <div class = "whitespace"></div> <!--adding a whitespace here-->
+                    <label for="confirm_password" class="form-label" placeholder="re entrer password">Confirm Password</label>
+                    <div>
+                     <input type="password" class="form-control" id="confirm_password" th:field="*{password}" required>
+                        <input type="checkbox" onclick="togglePassword('confirm_password')"> show password
+                    </div>
+                    <script>
+                        function togglePassword(ID){
+                            var x = document.getElementById(ID);
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                    </script>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
+                <div class="whitespace"></div>
+                <div>
+                    Already have an account? <a th:href="@{/login}">Log in</a>
+                </div>
             </form>
             <div th:if="${param.success}" class="mt-3">
                 <p class="text-success">Registration successful!</p>
