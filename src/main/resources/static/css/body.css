@@ -1,12 +1,11 @@
-/* Main content styles */
 body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
-    background-color: #E6F2F2; /* Light background for the main body */
-    font-family: 'Arial', sans-serif; /* Modern font family */
+    background-color: #E6F2F2;
+    font-family: 'Arial', sans-serif;
 }
 
 .content {
@@ -15,50 +14,43 @@ body, html {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #2E8B57; /* Sea Green text color for contrast */
+    color: #2E8B57;
     padding: 20px;
 }
 
-/* Heading styles */
 .content h1 {
     font-size: 3rem;
-    color: #4682B4; /* Steel Blue color for heading */
-    /* margin-bottom: 20px; Space below heading */
+    color: #4682B4;
 }
 
-/* Paragraph styles */
 .content p {
     font-size: 1.25rem;
     color: #2E8B57;
-    margin-bottom: 40px; /* Space below paragraph */
+    margin-bottom: 40px;
 }
 
-/* General styles for buttons */
 .button {
     display: inline-block;
     padding: 12px 30px;
     text-align: center;
     text-decoration: none;
-    border-radius: 8px; /* Softer corners */
+    border-radius: 8px;
     transition: background-color 0.3s, transform 0.3s;
-    /* margin: 10px 0; */
     font-size: 1.25rem;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for the Sign Up button */
 .signup {
-    background-color: #4682B4; /* Steel Blue background */
+    background-color: #4682B4;
     color: white;
 }
 
 .signup:hover {
-    background-color: #2E8B57; /* Sea Green on hover */
+    background-color: #2E8B57;
     transform: scale(1.05);
 }
 
-/* Styles for the Sign Up text */
 .signup-text {
     display: block;
     font-size: 1rem;
@@ -67,19 +59,17 @@ body, html {
     margin-bottom: 20px;
 }
 
-/* Styles for the Log In button */
 .login {
-    background-color: #2E8B57; /* Sea Green background */
+    background-color: #2E8B57;
     color: white;
     margin-top: 10px;
 }
 
 .login:hover {
-    background-color: #4682B4; /* Steel Blue on hover */
+    background-color: #4682B4;
     transform: scale(1.05);
 }
 
-/* Styles for the Log In text */
 .login-text {
     display: block;
     font-size: 1rem;
