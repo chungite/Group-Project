@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Error - Incorrect Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+    <link href="/css/error-body.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <h1>You entered incorrect data! please retry your action</h1>
-    <a href="/register">Register</a>
-    <a href="/login">Login</a>
+    <div class="container content text-center mt-5">
+        <div class="alert alert-danger" role="alert">
+            <h1 class="display-4">Error!</h1>
+            <p class="lead">You entered incorrect data! Please retry your action.</p>
+        </div>
+        <div class="button-container mt-4">
+            <a href="/register" class="btn btn-primary btn-lg mb-3">Register</a>
+            <a href="/login" class="btn btn-secondary btn-lg">Login</a>
+        </div>
+    </div>
 </body>
 </html>
