@@ -58,29 +58,38 @@
     <div class="container mt-5 content">
         <div class="text-center">
             <h1>Login</h1>
+            <a class="navbar-brand" href="#">
+                <img src="/logo/logo.png" alt="Sync Logo">
+            </a>
             <p>Welcome back! Please log in to your account.</p>
             <form th:action="@{/login}" th:object="${user}" method="post">
                 <div class="mb-3">
                     <label for="login" class="form-label">Login</label>
-                    <input type="text" class="form-control" id="login" th:field="*{login}" required>
+                    <input type="text" class="form-control" id="login" th:field="*{login}" required >
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" th:field="*{password}" required>
-                    <input type="checkbox"  onclick="togglePassword()" >show password
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2" id="password">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="togglePassword('password', this)">SHOW</button>
+                          </div>
+                    </div>
                 </div>
                 <div class="forgot-pw">
-                    <a href="#">Forgot Password?</a>
+                    <a th:href="@{/forgotPassword}">Forgot Password?</a>
                 </div>
                 <script>
-                    function togglePassword(){
-                        var x = document.getElementById("password");
-                        if (x.type === "password") {
-                            x.type = "text";
-                        } else {
-                            x.type = "password";
+                    function togglePassword(ID, button){
+                            var x = document.getElementById(ID);  
+                            if (x.type === "password") {
+                                x.type = "text";
+                                button.innerHTML = " HIDE ";
+                            } else {
+                                x.type = "password";
+                                button.innerHTML = "SHOW";
+                            }
                         }
-                    }
                 </script>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <div class="whitespace"></div>
